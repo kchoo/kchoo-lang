@@ -31,11 +31,12 @@ Types in the standard library
 ```
 String
 Array
-Hash (subject to change)
+Hash (name subject to change)
 Function
 
 // Maybes
 Class
+Interface
 BigInt
 Decimal
 ```
@@ -60,4 +61,63 @@ while (j != 10) {
 	// this is fine
 	j = j + 1;
 }
+```
+
+### Functions
+
+Functions will work the same way as normal JS functions (without fat arrow context weirdness), but with type signatures
+
+```
+function int sum2(int a) {
+	return 2 * a;
+}
+
+function int g = f;
+
+[1, 2, 3].map(g);
+```
+
+### Strings
+
+Two different delimiters:
+
+* Single quotes `'` for static, literal strings
+* Backticks ````` for strings that are interpolated
+
+Using the wrong type of delimiter is a syntax error.
+
+```
+// Yes
+string s = 'Hello, world';
+
+// No
+string s = 'Hello, ${`world`}';
+
+// Yes
+string s = `Hello, ${'world'}`;
+
+// No
+string s = `Hello, world`;
+```
+
+### Importing 
+
+Import statements will have a few different forms: (very tentative)
+
+```
+import
+	from './OtherClass': OtherClass
+	from './Functions': function string coolFunction as f
+	from './Constants': *
+```
+
+### Standard Library
+
+Very tentative
+
+Unlike JS, where everything is global, you'll need to import those classes/namespaces
+
+```
+import
+	from 'Math': double E as exp
 ```
