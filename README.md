@@ -1,4 +1,4 @@
-# kchoo-lang
+# kchoo
 JS-based language with strict, static typing (for learning about compilers)
 
 ## Differences between kchoo and JS
