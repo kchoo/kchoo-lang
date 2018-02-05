@@ -31,8 +31,9 @@ Types in the standard library
 ```
 String
 Array
-Hash (name subject to change)
+Hash (name subject to change, Map? Dict(ionary)?)
 Function
+Promise
 
 // Maybes
 Class
@@ -82,7 +83,7 @@ function int g = f;
 Two different delimiters:
 
 * Single quotes `'` for static, literal strings
-* Backticks ````` for strings that are interpolated
+* Backticks `` for strings that are interpolated
 
 Using the wrong type of delimiter is a syntax error.
 
@@ -100,24 +101,21 @@ string s = `Hello, ${'world'}`;
 string s = `Hello, world`;
 ```
 
-### Importing 
+### Modules 
 
-Import statements will have a few different forms: (very tentative)
-
-```
-import
-	from './OtherClass': OtherClass
-	from './Functions': function string coolFunction as f
-	from './Constants': *
-```
+Modules will work the same way as ES6 modules will (http://exploringjs.com/es6/ch_modules.html)
 
 ### Standard Library
 
-Very tentative
+You'll have to import stuff from the standard library, very little will be available by default (just types for right now)
 
-Unlike JS, where everything is global, you'll need to import those classes/namespaces
+Parts of the standard library:
 
 ```
-import
-	from 'Math': double E as exp
+// from JS
+Math
+
+// from node standard library
+fs
+http
 ```
