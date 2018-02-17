@@ -1,7 +1,6 @@
 # kchoo
-JS-based language with strict, static typing (for learning about compilers)
 
-## Differences between kchoo and JS
+`kchoo` is a JS-based language with strict, static typing (for learning about compilers)
 
 ### Static Typing
 
@@ -44,7 +43,7 @@ Decimal
 
 ### Immutability
 
-Variables are immutable by default, use `let` to enable mutability
+Variables are immutable by default, use `mutable` to enable mutability
 
 ```
 int i = 0;
@@ -55,7 +54,7 @@ while (i != 10) {
 	i = i + 1;
 }
 
-let int j = 0;
+mutable int j = 0;
 
 while (j != 10) {
 	...
@@ -119,3 +118,15 @@ Math
 fs
 http
 ```
+
+### Generics
+
+We have types, so we should have generics. I'll try to keep things as close to JS as possible (e.g. `[1, 2, 3]` will be interpreted as an `int32[]`), but some things will need to use the standard angle bracket syntax (e.g. `Queue<T>`)
+
+### Exceptions
+
+Taking a leaf out of the books of Rust and Haskell, there won't be typical `Error`s with `try`/`catch` blocks. Instead, any function that `throws new Error();` will require a return type of `Option<T>`. More on unwrapping `Option`s later (there will be probably be some kind of pattern matching features, TBD)
+
+### TODO
+
+I'm going to take a look at some code I wrote recently (maybe the media-aggregator) and "port" it to `kchoo`. That will help me hash out the specifics of the language and determine what I'd like and what I should drop.
