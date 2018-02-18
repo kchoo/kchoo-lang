@@ -123,6 +123,10 @@ http
 
 We have types, so we should have generics. I'll try to keep things as close to JS as possible (e.g. `[1, 2, 3]` will be interpreted as an `int32[]`), but some things will need to use the standard angle bracket syntax (e.g. `Queue<T>`)
 
+### Classes (abstract and concrete) and Interfaces
+
+Work the same way as you'd expect them to, coming from other OOP languages
+
 ### Exceptions
 
 Taking a leaf out of the books of Rust and Haskell, there won't be typical `Error`s with `try`/`catch` blocks. Instead, any function that `throws new Error();` will require a return type of `Option<T>`. More on unwrapping `Option`s later (there will be probably be some kind of pattern matching features, TBD)
