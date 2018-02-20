@@ -30,7 +30,7 @@ Types in the standard library
 ```
 String
 Array
-Hash (name subject to change, Map? Dict(ionary)? With static typing these will be a lot more unwieldy)
+Hash (name subject to change, Map? Dict(ionary)? With static typing these will be a lot more unwieldy (i.e. generics))
 Function
 Promise
 
