@@ -1,2 +1,48 @@
 // This file will contain a "port" of some import code I've written in the past
 // This example will use interfaces, generics, abstract classes, and hopefully display a large subset of kchoo's features
+
+interface iImporter {
+  // note: this parameter syntax is meant to mean that we are passing in a class which
+  // implements the iImportable interface
+  // same works for abstract/parent classes
+  public static iImportable[] function import(interface iImportable);
+}
+
+interface iImportable {
+  public static iImportSource importSource;
+  public static iImportable createFromDict(Dict dict);
+}
+
+interface iImportSource {
+  // note: Dicts are generally written Dict<keyType, valueType>, but those are string by default
+  // so we can omit them
+  // Dict<string, string> === Dict<string,> === Dict<,string> === Dict<,> === Dict<> === Dict
+  public Dict[] getSource();
+}
+
+class MockImportSource implements iImportSource {
+  constructor() {}
+  
+  public Dict[] getSource() {
+    return [{name: 'kchoo'}];
+  }
+}
+
+class Student implements iImportable {
+  public string name;
+  public static iImportSource importSource = new MockImportSource();
+  
+  // automatically populate the 'name' member, like in Dart
+  // really it's just sugar for constructor(string name) { this.name = name; }
+  constructor(this.name) {}
+  
+  public static createFromDict(Dict dict) {
+    return new Student(dict.name);
+  }
+}
+
+class StudentImporter implements iImporter {
+  public static int function import(iImportable Student) {
+    return Student.importSource.getSource();
+  }
+}
