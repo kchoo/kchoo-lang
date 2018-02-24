@@ -42,7 +42,10 @@ class Student implements iImportable {
 }
 
 class StudentImporter implements iImporter {
-  public static int function import(iImportable Student) {
-    return Student.importSource.getSource();
+  public static Student[] function import(iImportable Student) {
+    return Student.
+      importSource.
+      getSource().
+      map(Student.createFromDict)
   }
 }
