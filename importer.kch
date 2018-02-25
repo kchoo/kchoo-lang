@@ -41,11 +41,13 @@ class Student implements iImportable {
   }
 }
 
-class StudentImporter implements iImporter {
-  public static Student[] function import(iImportable Student) {
-    return Student.
+abstract class StandardImporter implements iImporter {
+  public static iImportable[] function import(iImportable ImportableClass) {
+    return ImportableClass.
       importSource.
       getSource().
-      map(Student.createFromDict)
+      map(ImportableClass.createFromDict);
   }
 }
+
+class StudentImporter extends StandardImporter implements iImporter {}
